@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:myapp="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    myapp:layout_behavior="@string/appbar_scrolling_view_behavior" >
+
+
+    <fragment android:name="androidx.navigation.fragment.NavHostFragment"
+        android:id="@+id/nav_host_fragment_content_main"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        myapp:defaultNavHost="true"
+        myapp:layout_constraintLeft_toLeftOf="parent"
+        myapp:layout_constraintRight_toRightOf="parent"
+        myapp:layout_constraintTop_toTopOf="parent"
+        myapp:navGraph="@navigation/mobile_navigation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
