@@ -50,9 +50,9 @@
     <string name="transfer_goods_activity">Transfer Goods Activity</string>
     <string name="transfer_motorbike_activity">Transfer Motorbike Activity</string>
     <string name="goods_description">write a description of the goods for shipping</string>
-    <string name="hint_goods_description">I want to ship (boxes, furniture, etc) from ... to ...</string>
+    <string name="hint_goods_description">I want to ship (boxes, furniture, etc) from … to …</string>
     <string name="bike_description">write a description of your motorbike</string>
-    <string name="hint_bike_description">I want to ship Motorbike from ... to ...</string>
+    <string name="hint_bike_description">I want to ship Motorbike from … to …</string>
     <string name="send_order">Send order</string>
     <string name="submit">Submit</string>
     <!-- TODO: Remove or change this placeholder text -->
@@ -77,7 +77,7 @@
     <string name="search">Search</string>
     <string name="message_type">Message Type</string>
     <string name="suggestions">Suggestions</string>
-    <string name="write_your_message_here">Write your message here...</string>
+    <string name="write_your_message_here">Write your message here…</string>
     <string name="reservations">Reservations</string>
     <string name="total_amounts_you_should_pay">Total amounts you should pay</string>
     <string name="payments">Payments</string>
