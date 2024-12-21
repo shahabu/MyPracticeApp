@@ -65,7 +65,7 @@
     <string name="sar">SAR</string>
     <string name="shipment_number">Shipment Number</string>
     <string name="if_your_complaint_related">If your complaint is related to a shipment, Enter your shipment number</string>
-    <string name="nasil_ksa">@nasil_ksa</string>
+    <string name="nasil_ksa">nasil_ksa</string>
     <string name="info_nasil_sa">info@nasil.sa</string>
     <string name="mobile_no">0506081110</string>
     <string name="contact_us_via_below_channels">You can contact us via below channels</string>
