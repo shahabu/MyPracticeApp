@@ -6,8 +6,8 @@
     android:layout_height="fill_parent">
 
     <ImageView android:id="@+id/logo"
-        android:layout_width="200.0dp"
-        android:layout_height="200.0dp"
+        android:layout_width="150.0dp"
+        android:layout_height="150.0dp"
         android:src="@mipmap/ic_logo"
         myapp:layout_constraintBottom_toBottomOf="@+id/first_guideline"
         myapp:layout_constraintEnd_toEndOf="parent"
@@ -19,7 +19,7 @@
         android:background="@drawable/ic_rounded_white_bg"
         android:layout_width="wrap_content"
         android:layout_height="68.0dp"
-        android:layout_marginTop="40.0dp"
+        android:layout_marginTop="20.0dp"
         android:layout_marginBottom="20.0dp"
         myapp:cardCornerRadius="40.0dp"
         myapp:cardElevation="2.0dp"
@@ -132,10 +132,39 @@
             android:drawableStart="@drawable/ic_truck" />
     </androidx.cardview.widget.CardView>
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/dashboard_card"
+        android:background="@drawable/ic_rounded_white_bg"
+        android:layout_width="0.0dp"
+        android:layout_height="68.0dp"
+        android:layout_marginTop="40.0dp"
+        myapp:cardCornerRadius="40.0dp"
+        myapp:cardElevation="2.0dp"
+        myapp:layout_constraintEnd_toEndOf="@id/nearestVehicle"
+        myapp:layout_constraintStart_toStartOf="@id/nearestVehicle"
+        myapp:layout_constraintTop_toBottomOf="@id/nearestVehicle"
+        >
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textColor="@color/colorAccent"
+            android:gravity="start|center"
+            android:layout_gravity="center"
+            android:id="@+id/text_dashboard"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:minWidth="0.0dp"
+            android:minHeight="0.0dp"
+            android:text="@string/dashboard"
+            android:drawablePadding="30.0dp"
+            android:layout_marginEnd="15dp"
+            android:drawableStart="@mipmap/ic_red_logo" />
+    </androidx.cardview.widget.CardView>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@id/first_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        myapp:layout_constraintGuide_percent="0.3" />
+        myapp:layout_constraintGuide_percent="0.2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

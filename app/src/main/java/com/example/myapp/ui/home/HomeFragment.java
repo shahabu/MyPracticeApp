@@ -20,6 +20,7 @@ import com.example.myapp.R;
 import com.example.myapp.TransferCar;
 import com.example.myapp.TransferGoods;
 import com.example.myapp.TransferMotorbike;
+import com.example.myapp.WebActivity;
 import com.example.myapp.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
@@ -42,7 +43,7 @@ public class HomeFragment extends Fragment {
         CardView nearestVehicle = view.findViewById(R.id.nearestVehicle);
         CardView moterbike = view.findViewById(R.id.moterbike);
         CardView transferGoods = view.findViewById(R.id.transferGoods);
-
+        CardView dashboard = view.findViewById(R.id.dashboard_card);
 
         carTransfer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,14 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), TransferGoods.class);
+                startActivity(intent);
+            }
+        });
+
+        dashboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), WebActivity.class);
                 startActivity(intent);
             }
         });

@@ -85,7 +85,8 @@
     <string name="total_amounts">Total amounts</string>
     <string name="pickup_city">Pickup City</string>
     <string name="dropoff_city">Dropoff City</string>
-    <string name="vehicle_type">Vehicle Type</string>    <string name="confirm_order">Confirm order</string>
+    <string name="vehicle_type">Vehicle Type</string>
+    <string name="confirm_order">Confirm order</string>
     <string name="online_payment">Online Payment</string>
     <string name="payment_methods">Payment methods</string>
     <string name="add">Add</string>
@@ -109,5 +110,6 @@
     <string name="transport_details">Transport details</string>
     <string name="call">Call</string>
     <string name="company_name">شركه سعيد محي البسامي</string>
+    <string name="dashboard">Dashboard</string>
 
 </resources>
