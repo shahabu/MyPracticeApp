@@ -1,0 +1,71 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/popup_background"
+    android:orientation="vertical"
+    android:paddingTop="15dp"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="30dp"
+    android:layout_gravity="center"
+    android:elevation="5dp">
+
+    <!-- Close Icon -->
+    <ImageView
+        android:id="@+id/close_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/cross"
+        android:layout_gravity="end"
+        android:paddingEnd="-10dp"
+        android:contentDescription="Close"
+        />
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="What's New"
+        android:textColor="@color/myColor"
+        android:textSize="18sp" />
+
+    <!-- First Feature Row -->
+    <TextView
+        android:id="@+id/bike_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🏍️ You can transfer your bike with us"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"/>
+    <!-- Second Feature Row -->
+
+    <TextView
+        android:id="@+id/truck_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🚚 You can transfer your goods easily"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"/>
+
+    <!-- Update Button -->
+    <Button
+        android:id="@+id/update_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:text="Update Now"
+        android:backgroundTint="@color/myColor"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:background="@drawable/rounded_outlined_bg"
+        android:elevation="5dp" />
+
+</LinearLayout>

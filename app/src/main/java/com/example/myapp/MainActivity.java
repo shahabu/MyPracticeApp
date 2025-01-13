@@ -1,10 +1,14 @@
 package com.example.myapp;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.view.MenuItem;
@@ -30,7 +34,43 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-    //  Disable Night Mode Globally
+    // Alert dialog
+        Dialog dialog = new Dialog(this);
+        dialog.setContentView(R.layout.alert_dialog);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+        Button updateButton = dialog.findViewById(R.id.update_button);
+        updateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String appPackageName = "com.nasil.userapp"; // Actual app package name
+                String appPlayStoreLink = "https://play.google.com/store/apps/details?id=" + appPackageName;
+                 // Redirect user to the Play Store to rate the app
+                 try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName));
+                    startActivity(intent);
+                } catch (Exception e) {
+                    // Fallback if Play Store is not installed
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(appPlayStoreLink));
+                    startActivity(intent);
+                }
+            }
+        });
+        dialog.show();
+
+        // Close Button
+        ImageView closeButton = dialog.findViewById(R.id.close_button);
+        closeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+
+
+
+        //  Disable Night Mode Globally
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
         this.binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -39,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Ensure hamburger icon shows without title
         getSupportActionBar().setDisplayShowTitleEnabled(false); // No title
+
 
         // Set the custom red hamburger icon
 //        this.binding.appBarMain.toolbar.setNavigationIcon(R.drawable.ic_hamburger);
