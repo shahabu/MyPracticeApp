@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -30,45 +31,11 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private AppBarConfiguration mAppBarConfiguration;
 
+    private Dialog updateDialog; // Prevent multiple dialogs
+
     /* JADX WARN: Multi-variable type inference failed */
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-    // Alert dialog
-        Dialog dialog = new Dialog(this);
-        dialog.setContentView(R.layout.alert_dialog);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-
-        Button updateButton = dialog.findViewById(R.id.update_button);
-        updateButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String appPackageName = "com.nasil.userapp"; // Actual app package name
-                String appPlayStoreLink = "https://play.google.com/store/apps/details?id=" + appPackageName;
-                 // Redirect user to the Play Store to rate the app
-                 try {
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName));
-                    startActivity(intent);
-                } catch (Exception e) {
-                    // Fallback if Play Store is not installed
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(appPlayStoreLink));
-                    startActivity(intent);
-                }
-            }
-        });
-        dialog.show();
-
-        // Close Button
-        ImageView closeButton = dialog.findViewById(R.id.close_button);
-        closeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-
-
 
         //  Disable Night Mode Globally
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -108,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, this.mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        // Always show the update dialog when the app is opened
+        showUpdateDialog();
 
     }
 //    private void openRateApp() {
@@ -152,5 +123,60 @@ public class MainActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, this.mAppBarConfiguration) || super.onSupportNavigateUp();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Dismiss dialog if it's showing
+        if (updateDialog != null && updateDialog.isShowing()) {
+            updateDialog.dismiss();
+            updateDialog = null;
+        }
+    }
+
+    private void showUpdateDialog() {
+        // Remove any condition checks and directly show the dialog
+        updateDialog = new Dialog(this);
+        updateDialog.setContentView(R.layout.alert_dialog);
+        updateDialog.setCancelable(false); // Prevent closing by clicking outside
+
+        Button btnUpdate = updateDialog.findViewById(R.id.btnUpdate);
+        ImageView btnClose = updateDialog.findViewById(R.id.btnClose);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String appPackageName = "com.nasil.userapp"; // Actual app package name
+                String appPlayStoreLink = "https://play.google.com/store/apps/details?id=" + appPackageName + "&reviewId=0";
+
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" + appPackageName + "&reviewId=0"));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                } catch (Exception e) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(appPlayStoreLink));
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    startActivity(intent);
+                }
+                updateDialog.dismiss();
+            }
+        });
+
+        btnClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDialog.dismiss();
+            }
+        });
+
+        // Adjust the dialog size to remove extra space
+        if (updateDialog.getWindow() != null) {
+            updateDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            updateDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        }
+
+        updateDialog.show();
     }
 }

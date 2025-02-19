@@ -1,71 +1,76 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/popup_background"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
     android:orientation="vertical"
-    android:paddingTop="15dp"
-    android:paddingStart="20dp"
-    android:paddingEnd="20dp"
-    android:paddingBottom="30dp"
-    android:layout_gravity="center"
-    android:elevation="5dp">
+    android:gravity="center">
 
-    <!-- Close Icon -->
-    <ImageView
-        android:id="@+id/close_button"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:src="@drawable/cross"
-        android:layout_gravity="end"
-        android:paddingEnd="-10dp"
-        android:contentDescription="Close"
-        />
-
-    <!-- Title -->
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:text="What's New"
-        android:textColor="@color/myColor"
-        android:textSize="18sp" />
-
-    <!-- First Feature Row -->
-    <TextView
-        android:id="@+id/bike_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🏍️ You can transfer your bike with us"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"/>
-    <!-- Second Feature Row -->
-
-    <TextView
-        android:id="@+id/truck_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="🚚 You can transfer your goods easily"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="14sp"
-        android:layout_marginTop="10dp"/>
-
-    <!-- Update Button -->
-    <Button
-        android:id="@+id/update_button"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/dialog_background"
+        android:orientation="vertical">
+
+        <!-- Title Section with Close Button -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="What's New"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/cross"
+                app:tint="@color/colorAccent"
+                android:clickable="true"
+                android:focusable="true"/>
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/bike_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🏍️ You can transfer your bike with us"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:id="@+id/truck_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚚 You can transfer your goods easily"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="40dp"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:text="Update Now"
-        android:backgroundTint="@color/myColor"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
+        android:textAllCaps="false"
         android:layout_gravity="center"
-        android:paddingStart="20dp"
-        android:paddingEnd="20dp"
+        android:textColor="@android:color/white"
         android:background="@drawable/rounded_outlined_bg"
-        android:elevation="5dp" />
+        android:layout_marginTop="-45dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"/>
 
 </LinearLayout>
